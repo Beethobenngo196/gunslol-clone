@@ -847,3 +847,240 @@ a {
     }
 
 }
+/* Ẩn chấm rỗng mặc định */
+.dc-status::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    display: none; /* Thêm dòng này */
+}
+
+/* Chỉ hiện chấm rỗng khi có class is-offline do JS thêm vào */
+.dc-status.is-offline::after {
+    display: block;
+}
+/* =========================================
+   PROJECTS SECTION (FIXED)
+   ========================================= */
+.projects-section {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.section-heading {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    color: #00d9ff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-left: 5px;
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+    text-align: left; /* Ép tiêu đề canh trái */
+    width: 100%;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Xếp dọc từ trên xuống */
+    gap: 15px;
+    width: 100%;
+}
+
+/* Khối thẻ dự án có nền kính mờ độc lập */
+.project-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left; /* Ép chữ canh trái */
+    align-items: flex-start; /* Ép icon và tag canh trái */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: var(--glass-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 217, 255, 0.15), inset 0 0 15px rgba(0, 217, 255, 0.05);
+    border-color: rgba(0, 217, 255, 0.4);
+}
+
+.project-icon {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.project-title {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.project-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.tech-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    color: #ffd5ec;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover .tech-tag {
+    background: rgba(0, 217, 255, 0.1);
+    border-color: rgba(0, 217, 255, 0.3);
+    color: #00d9ff;
+}.discord-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    background: rgba(25, 25, 25, 0.5); /* Nền kính tối màu */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px; 
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.dc-avatar-wrapper {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0;
+}
+
+.dc-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: brightness(0.9); 
+}
+
+/* Chấm trạng thái rỗng đặc trưng */
+.dc-status {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 26px;
+    height: 26px;
+    background-color: #747f8d; 
+    border-radius: 50%;
+    border: 4px solid #1c1c1c; 
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+/* Làm rỗng ruột khi Offline */
+.dc-status.is-offline::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: #1c1c1c;
+    border-radius: 50%;
+}
+
+.dc-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.dc-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.dc-username {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #e62020; /* Chữ màu đỏ */
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.dc-badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dc-badge {
+    background: rgba(40, 40, 40, 0.8);
+    border-radius: 8px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-status {
+    gap: 6px;
+}
+
+.dc-emoji {
+    font-size: 1rem;
+}
+
+.dc-status-text {
+    font-size: 0.85rem;
+    color: #e62020; /* Chữ custom status màu đỏ */
+    font-weight: 500;
+}
+
+.icon-badge {
+    padding: 6px;
+    background: transparent;
+}
+
+.dc-subtext {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #b01a1a; /* Đỏ tối */
+    margin: 0;
+    text-align: left;
+}
