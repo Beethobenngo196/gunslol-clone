@@ -1,173 +1,135 @@
+/* ============================= */
+/* Lightning Around Avatar */
+/* ============================= */
+
 .avatar-wrapper{
-
-    position:relative;
-
-    display:inline-block;
-
+    position: relative;
+    display: inline-block;
 }
-
-/* layer */
 
 .avatar-lightning{
+    position: absolute;
+    inset: -28px;
+    pointer-events: none;
+    z-index: 1;
 
-    position:absolute;
-
-    inset:-25px;
-
-    pointer-events:none;
-
-    z-index:1;
-
+    animation: orbit 10s linear infinite;
 }
-
-/* avatar */
 
 .avatar-container{
-
-    position:relative;
-
-    z-index:2;
-
+    position: relative;
+    z-index: 2;
 }
 
-.avatar-chat{
+.bolt{
+    position: absolute;
 
-    z-index:3;
+    width: 24px;
+    height: 38px;
 
-}
+    background: linear-gradient(
+        180deg,
+        #ffd6ff,
+        #ff66d9,
+        #ff00b3
+    );
 
-/* mỗi tia */
-
-.avatar-lightning span{
-
-    position:absolute;
-
-    width:42px;
-
-    height:8px;
-
-    border-radius:999px;
-
-    background:linear-gradient(
-        90deg,
-        transparent,
-        #ff00b3,
-        #ffd2ff,
-        #ff00b3,
-        transparent
+    clip-path: polygon(
+        48% 0%,
+        78% 0%,
+        60% 35%,
+        100% 35%,
+        40% 100%,
+        55% 58%,
+        18% 58%
     );
 
     filter:
-        blur(.5px)
-        drop-shadow(0 0 6px #ff00b3)
-        drop-shadow(0 0 18px #ff00b3);
+        drop-shadow(0 0 6px #ff00c8)
+        drop-shadow(0 0 12px #ff00c8)
+        drop-shadow(0 0 20px #ff00c8);
 
-    animation:
-        lightningFlash 1.6s infinite ease-in-out,
-        lightningRotate 6s linear infinite;
+    opacity: .2;
 
+    animation: flash 1.4s infinite ease-in-out;
 }
 
 /* vị trí */
 
-.avatar-lightning span:nth-child(1){
-
-    top:0;
+.bolt1{
+    top:-8px;
     left:50%;
-
-    transform:translateX(-50%) rotate(25deg);
-
+    transform:translateX(-50%) rotate(10deg);
+    animation-delay:.1s;
 }
 
-.avatar-lightning span:nth-child(2){
-
-    right:0;
-    top:35%;
-
-    transform:rotate(120deg);
-
+.bolt2{
+    right:-6px;
+    top:28%;
+    transform:rotate(95deg);
+    animation-delay:.5s;
 }
 
-.avatar-lightning span:nth-child(3){
-
-    bottom:0;
-    left:50%;
-
-    transform:translateX(-50%) rotate(-20deg);
-
-}
-
-.avatar-lightning span:nth-child(4){
-
-    left:0;
-    top:30%;
-
-    transform:rotate(-110deg);
-
-}
-
-.avatar-lightning span:nth-child(5){
-
-    left:10%;
-
-    top:10%;
-
-    transform:rotate(-35deg);
-
-}
-
-.avatar-lightning span:nth-child(6){
-
+.bolt3{
     right:8%;
-
-    bottom:12%;
-
-    transform:rotate(40deg);
-
+    bottom:-8px;
+    transform:rotate(170deg);
+    animation-delay:.9s;
 }
 
-/* chớp */
+.bolt4{
+    left:8%;
+    bottom:-10px;
+    transform:rotate(210deg);
+    animation-delay:.3s;
+}
 
-@keyframes lightningFlash{
+.bolt5{
+    left:-8px;
+    top:28%;
+    transform:rotate(-95deg);
+    animation-delay:.7s;
+}
+
+.bolt6{
+    left:18%;
+    top:2%;
+    transform:rotate(-35deg);
+    animation-delay:1.1s;
+}
+
+@keyframes flash{
 
     0%,100%{
-
         opacity:.15;
-
-        transform:scale(.7);
-
+        transform:scale(.8);
     }
 
-    30%{
-
+    25%{
         opacity:1;
-
-        transform:scale(1.25);
-
+        transform:scale(1.15);
     }
 
-    60%{
-
+    50%{
         opacity:.45;
+        transform:scale(.95);
+    }
 
+    75%{
+        opacity:.9;
+        transform:scale(1.08);
     }
 
 }
 
-/* quay */
-
-@keyframes lightningRotate{
+@keyframes orbit{
 
     from{
-
-        rotate:0deg;
-
+        transform:rotate(0deg);
     }
 
     to{
-
-        rotate:360deg;
-
+        transform:rotate(360deg);
     }
 
 }
