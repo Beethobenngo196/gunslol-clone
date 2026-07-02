@@ -63,4 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(typeWriter, typingSpeed);
         }
     }
+    // ==========================================
+  if (typeof userConfig !== 'undefined' && userConfig.pageTitle) {
+        document.title = userConfig.pageTitle;
+  }
 });
