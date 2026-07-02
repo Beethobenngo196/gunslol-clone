@@ -1,0 +1,172 @@
+/* =========================================
+   TOUCH DEVICES (HIDE CUSTOM CURSOR)
+   ========================================= */
+@media (hover: none) and (pointer: coarse) {
+    .cursor-dot, 
+    .cursor-glow {
+        display: none !important;
+    }
+    
+    /* Trả lại con trỏ chuột mặc định cho các thiết bị cảm ứng */
+    * {
+        cursor: auto !important;
+    }
+    
+    .social-icon:hover {
+        transform: translateY(-3px) scale(1.05); /* Giảm scale trên mobile để tránh lag */
+    }
+}
+
+/* =========================================
+   TABLET DEVICES (Max width: 768px)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    .main-content {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .glass-card {
+        padding: 30px 20px;
+        gap: 25px;
+    }
+
+    .avatar-container {
+        width: 110px;
+        height: 110px;
+    }
+
+    .username {
+        font-size: 1.6rem;
+    }
+    
+    .social-grid {
+        gap: 12px;
+    }
+    
+    .social-icon {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* =========================================
+   MOBILE DEVICES (Max width: 480px)
+   ========================================= */
+@media screen and (max-width: 480px) {
+    .enter-text {
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .glass-card {
+        padding: 25px 15px;
+        border-radius: 20px;
+        gap: 20px;
+    }
+
+    .avatar-container {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .status-indicator {
+        width: 16px;
+        height: 16px;
+        bottom: 2px;
+        right: 2px;
+        border-width: 2px;
+    }
+
+    .username {
+        font-size: 1.4rem;
+    }
+
+    .bio-text {
+        font-size: 0.85rem;
+    }
+
+    /* Chỉnh sửa lưới icon cho vừa màn hình nhỏ (giữ 4 cột nhưng thu nhỏ lại) */
+    .social-grid {
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 10px;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+    }
+
+    .social-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Đưa các nút điều khiển nhạc xuống dưới thông tin bài hát trên Mobile */
+    .music-player {
+        flex-direction: column;
+        gap: 15px;
+        padding: 12px;
+    }
+
+    .music-info {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .music-controls {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Làm thanh âm lượng to hơn một chút để dễ chạm */
+    .volume-slider-container {
+        width: 100px; 
+    }
+}
+
+/* =========================================
+   VERY SMALL DEVICES (Max width: 360px)
+   ========================================= */
+@media screen and (max-width: 360px) {
+    .social-grid {
+        /* Chuyển xuống 3 cột nếu màn hình quá hẹp (ví dụ iPhone SE cũ) */
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .avatar-container {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .username {
+        font-size: 1.2rem;
+    }
+}
+
+/* =========================================
+   LANDSCAPE MOBILE (Fix cho màn hình ngang)
+   ========================================= */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    body {
+        overflow-y: auto; /* Cho phép cuộn nếu xoay ngang màn hình */
+        align-items: flex-start;
+    }
+    
+    .main-content {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .glass-card {
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    .avatar-container {
+        width: 80px;
+        height: 80px;
+    }
+}
