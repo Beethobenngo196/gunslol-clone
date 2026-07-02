@@ -1,36 +1,48 @@
-const username=document.querySelector(".username");
-const container=document.querySelector(".spark-container");
+document.addEventListener("DOMContentLoaded",()=>{
 
-function createSpark(){
+    function createSpark(){
 
-    if(!container)return;
+        const username=document.querySelector(".username");
+        const container=document.querySelector(".spark-container");
 
-    const s=document.createElement("div");
+        if(!username||!container)return;
 
-    s.className="spark";
+        const s=document.createElement("div");
 
-    const w=username.offsetWidth;
-    const h=username.offsetHeight;
+        s.className="spark";
 
-    s.style.left=Math.random()*w+"px";
-    s.style.top=Math.random()*h+"px";
+        const w=username.offsetWidth;
+        const h=username.offsetHeight;
 
-    s.style.animationDuration=
-        (.8+Math.random()*.8)+"s";
+        const size=2+Math.random()*5;
 
-    s.style.width=
-        (2+Math.random()*3)+"px";
+        s.style.width=size+"px";
+        s.style.height=size+"px";
 
-    s.style.height=s.style.width;
+        s.style.left=Math.random()*w+"px";
+        s.style.top=Math.random()*h+"px";
 
-    container.appendChild(s);
+        s.style.animationDuration=
+            (.9+Math.random()*.8)+"s";
 
-    setTimeout(()=>{
+        container.appendChild(s);
 
-        s.remove();
+        setTimeout(()=>{
 
-    },1700);
+            s.remove();
 
-}
+        },1800);
 
-setInterval(createSpark,120);
+    }
+
+    // Nhiều hạt ngay khi load
+    for(let i=0;i<35;i++){
+
+        setTimeout(createSpark,i*35);
+
+    }
+
+    // Tăng mật độ
+    setInterval(createSpark,35);
+
+});
