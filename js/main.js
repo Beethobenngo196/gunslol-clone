@@ -7,10 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Render dữ liệu từ file config.js
     const usernameDisplay = document.getElementById('username-display');
     const songTitleDisplay = document.getElementById('song-title-display');
-    
+    const avatarChat = document.getElementById('avatar-chat');
     if (typeof userConfig !== 'undefined') {
         usernameDisplay.textContent = userConfig.username;
         songTitleDisplay.textContent = userConfig.songTitle;
+        avatarChat.textContent = userConfig.avatarBubbleText;
     } else {
         console.error("Không tìm thấy file config.js hoặc biến userConfig");
     }

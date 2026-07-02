@@ -40,14 +40,38 @@
         <div class="glass-card">
             
             <div class="profile-section">
-                <div class="avatar-container">
-                    <img src="assets/images/avatar.png" alt="User Avatar" class="avatar" onerror="this.src='https://via.placeholder.com/150/000000/FFFFFF/?text=Avatar'">
-                    <div class="status-indicator">
-                        <span class="ping"></span>
-                        <span class="dot"></span>
+
+                <div class="avatar-wrapper">
+
+                    <div class="lightning"></div>
+                        <div class="avatar-lightning">
+                            <span class="bolt bolt1"></span>
+                            <span class="bolt bolt2"></span>
+                            <span class="bolt bolt3"></span>
+                            <span class="bolt bolt4"></span>
+                            <span class="bolt bolt5"></span>
+                            <span class="bolt bolt6"></span>
+                        </div>
+                        
+                    <div class="avatar-container">
+
+                        <img src="assets/images/avatar.png"
+                            alt="User Avatar"
+                            class="avatar"
+                            onerror="this.src='https://via.placeholder.com/150/000000/FFFFFF/?text=Avatar'">
+
+                        <div class="status-indicator">
+                            <span class="ping"></span>
+                            <span class="dot"></span>
+                        </div>
+
                     </div>
+
+                    <div id="avatar-chat" class="avatar-chat"></div>
+
                 </div>
-                <h1 id="username-display" class="username" data-text="Username">Username</h1>
+
+                <h1 id="username-display" class="username" data-text="Username">Username</h1>       
                 
                 <div class="bio-container">
                     <p class="bio-text"><span id="typing-text"></span><span class="cursor-blink">_</span></p>
