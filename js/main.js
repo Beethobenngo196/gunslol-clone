@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const songTitleDisplay = document.getElementById('song-title-display');
     const avatarChat = document.getElementById('avatar-chat');
     if (typeof userConfig !== 'undefined') {
-        usernameDisplay.textContent = userConfig.username;
+        usernameDisplay.innerHTML = `
+            <span class="username-text">${userConfig.username}</span>
+            <div class="spark-container"></div>
+        `;
         songTitleDisplay.textContent = userConfig.songTitle;
         avatarChat.textContent = userConfig.avatarBubbleText;
     } else {
@@ -42,10 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.classList.add('fade-in-up');
             });
 
-            if (!isTypingStarted) {
-                isTypingStarted = true;
-                setTimeout(typeWriter, 800);
-            }
+        typingTextElement.textContent = bioText;
 
             document.dispatchEvent(new Event('startMusic'));
         }, 500);
